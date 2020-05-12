@@ -1,0 +1,1649 @@
+############### Libra-E
+
+---------------------------------------------------------
+### Main Problems
+
+  - Queing in Registration log in upon visiting the library especially in peak hours causes
+    bottleneck in the entrance of the library, which causes distress to the users and to the librarians.
+    Also because of that some students do not log in. Because of the crowded entrance the librarians cannot 
+    monitor all students if they already log in or not.
+
+  - In the daily user statistics reports of the library. the librarians only gathers the quantity of the students
+    and its course and not the names in their excell reports. most of which is because of the unreadable penmaship
+    of the users particularly students and some of them don't write their real name, instead write some other
+    name that is not really related to them.
+
+  - Currently the library doesn't easily know when a book/s is being stolen or lost
+    - The last library head had to pay all the missing books in the library
+    - The will only know that some of the books are missing when the they do their full inventory
+      every summer.
+
+  - Some of the faculty or coaches exits or leaves the school without paying the lost book 
+    they have lost.
+    - Not all pays their penalties particularly from the penalties of borrowing books
+
+---------------------------------------------------------
+
+  // Domain settings & data
+
+  # Domain Z.com
+    - nytcrow22@gmail.com
+    - 0123456@sti
+
+  // libra-e.webstarterz.com
+
+  # cpanel
+    - password
+      - libralibre69
+
+  # cpanel login url
+    - https://cpanel04wh.sin1.cloud.z.com:2083/
+      
+    - server name (Name Tag)
+      - libra-e-server-sti
+      
+  # Database Users
+    - username
+      - cp846299_libra1
+    - password
+      - libralibre69
+
+  # Cpanel Account
+    username
+      - cp846299
+    password
+      - libralibre69
+      - 0123456@sti ?
+  
+    username
+      - jehm_raquitico
+    password
+      - libralibre69
+    - home directory
+      - public_html/jehm_raquitico
+
+  # FTP Account
+    - username
+      - libra_main_admin_1 @libra-e.webstarterz.com
+    - password
+      - libralibre69
+    - directory
+      - /home/cp846299/  public_html/libra-e.webstarterz.com/libra_main_admin_1
+
+
+---------------------------------------------------------
+
+######################### Todo Next
+
+  // Next
+
+  // Learn PrintThis Jquery
+
+  # Thesis Borrowing Module
+  
+  # Libra-E Reports
+    # Add All Statistics Reports
+
+  // Other statistics
+
+  # Reports Printable 
+
+  # Libra-E Settings
+
+  # Libra-E Info site Design
+ 
+  # Boardgames & PS4 Usages
+
+  # Weeding of books Logic and Module
+
+
+
+  /// To Add
+
+  # Add Borrowed status, inactive and count in accessions
+  
+
+  # Add Count data To All Module
+
+  # Admin Egames Alert Timer! 
+
+  # Admin Egames Reservation Module 
+  // Add Date Search
+
+  # Fix if else || session checker input
+
+  # Add filter: Shs, tertiary in accounts student module
+    
+  # Accountability Alert in Libra-E
+
+  # Bell Notifications for Users
+  
+  # Libra_e Settings
+    - end, start semester etc
+
+  # fix Camera
+  
+  # Book Donation add notes specifing who donated
+    
+  # Printing of book card, book bucket and label for the books
+    - with its correct data automaticaly
+  # Generation of Library card
+
+  # Delete Validation // If Data is used cannot be deleted.
+
+  # Add to lost and Weeded Thesis Books ?
+  # Inspirational Module ?
+  # Journal Module ?
+
+
+  
+
+---------------------------------------------------------
+
+### Notes
+
+  
+Add// 
+  add multiple books
+
+// Reports
+  Every Adding and Edit of books
+  #Get specific date of purchased book
+  reports Aquisition in adding books
+  Date sorting
+
+//Borrowing
+  remaining 1 book policy
+  Aproval
+  Returned
+  List of borrowed items
+  Deficit
+  Cancelation
+
+  Timestamps
+
+//Ajax for time checking Alarm  
+
+
+---------------------------------------------------------
+### Data and Modules
+
+## Enhance the old proposed system
+  - Inventory and Management system
+    - More user Friendly
+    - More Reports
+    - More Functionality
+  - Online Reservation
+    - Online Catalog of books
+    - Online Registration of students
+    - Online Scheduling for rooms and areas of the library
+  - Database normalization
+    
+---------------------------------------------------------
+
+## Login Modules:
+  * Backend system for librarians
+    * Admins
+     - Head librarian
+     - Assistant librarian
+     - Student Assistant librarian
+  
+  * Online System for students and faculties or coaches
+    * Students
+    * Faculties or coaches
+
+---------------------------------------------------------
+
+## Inventory Management
+
+  # View, Search, Add, edit or withdrawal of books to accession
+  # Add Existing data from excell
+    - should auto make new data if not existing.
+      - authors
+      - publisher
+
+  * accession (table) // Main table for the books
+    - ID (Primary Key)
+    - pic_url // url pic saved in public folder
+    - date_received
+    - isbn
+    - book_title
+    - cutters_table (foreign key) = cutters_tables_tbl
+    - copyright
+    - source_of_fund
+      - 1 = purchased
+      - 2 = donated
+      - 3 = others
+    - classification_id
+    - category_id_1
+    - category_id_2
+    - point_category ?
+    - illustration_id (foreign key) = illustration_tbl
+    - edition
+    - volume
+    - pages
+    - cost_price
+    - copies
+    - filipiniana
+      - 1 = from the philipine
+      - 0 = non-Filipiniana
+    - timestamps
+  
+  * no_accessions (table) for accessions
+    - ID (Primary Key)
+    - accession_no
+    - accession_id = accessions (Table)
+    - availability
+      - 0 = not-available
+      - 1 = available
+      - 2 = borrowed
+    - status
+      - 1 = active
+      - 2 = weeded
+      - 3 = lost/damage
+    - timestamps
+
+  * conflict_accessions (Table) For conflict rows in excell import
+    - ID (Primary Key)
+    - accession_no
+    - author
+    - title
+    - publisher
+    - status
+      - 1 Conflict
+      - 2 Dismissed
+      - 3 Resolved
+    - timestaps
+    
+
+  // What code for RFID?
+  # How to make RFID?
+    - print rfid for books
+    - for library ID
+
+---------------------------------------------------------
+
+  # Suggestion of Weeding of Books
+    
+    // Auto Suggestion based on the copyright on library policy of weeding books.
+
+
+---------------------------------------------------------
+
+# Aquisition of Books
+
+  //Adding, weeded, lost Every Event in books
+
+    * aquisition_books (Table)
+      - ID (Primary Key)
+      - acc_id 
+      - quantity
+      - aquisition_type
+        - 1 = addition
+        - 2 = weeded
+        - 3 = damage/lost
+      - timestamp
+
+    // Add all then minus weeded and lost to get all
+
+    // Handle accession to add to weeded or lost
+
+    # Date Filter Specific date
+    # Get Automatic sum minus weede or lost
+    # Easily get Info data
+    # Print Excell Report
+    # Get Data to create graph or dashboard
+
+    
+---------------------------------------------------------
+
+# Printing of book card, book bucket and label for the books
+  - with its correct data automaticaly
+
+---------------------------------------------------------
+
+# Inventory monitoring
+  - scanning of book through RFID
+
+
+  # View, Search, Add, edit or withdrawal of thesis books to thesis collection
+  # Add Existing data from excell
+    - should auto make new data if not existing.
+      - Thesis authors
+
+  * thesis_books (Table)
+    - ID (Primary Key)
+    - acc_no
+    - call_no
+    - title
+    - system_types_id
+    - thesis_category_id
+    - thesis_subject_id
+    - course_id
+    - copyright
+    - availability
+      - 0 = not-available
+      - 1 = available
+      - 2 = borrowed
+    - status
+    - timestamps
+
+  // one to many
+  * thesis_authors (table)
+    - ID (Primary Key)
+    - thesis_id (foreign key) = thesis_tbl
+    - first_name
+    - middle_name
+    - last_name
+    - timestamp
+    
+  // Type of System
+  * thesis_types
+    - ID
+    - name
+    - status
+    - timestamp
+  
+  
+  // Thesis Category (Capstone, ITS, CSThesis, etc..) in Course/Programs
+  * thesis_categories
+    - ID
+    - name
+    - status
+    - timestamp
+
+  // Subject of system
+  * thesis_subjects
+    - ID
+    - name
+    - status
+    - timestamp
+
+    
+
+---------------------------------------------------------
+
+# Aquisition of ThesisBooks
+
+  //Adding, weeded, lost Every Event in books
+
+    * aquisition_thesis (Table)
+      - ID (Primary Key)
+      - thesis_book_id 
+      - quantity
+      - aquisition_type
+        - 1 = addition
+        - 2 = weeded
+        - 3 = lost
+      - timestamp
+
+    // Add all then minus weeded and lost to get all
+
+    // Handle accession to add to weeded or lost
+
+    # Date Filter Specific date
+    # Get Automatic sum minus weede or lost
+    # Easily get Info data
+    # Print Excell Report
+    # Get Data to create graph or dashboard
+
+    
+---------------------------------------------------------
+
+  # View, Search, Add, edit or withdrawal of Insiprational books to inspirational collection
+  # Add Existing data from excell
+    - should auto make new data if not existing.
+      - authors
+      - publisher
+
+  * inspirational (Table)
+    - ID (Primary Key)
+    - accession_no
+    - title
+    - author_id (foreign key) = authors_tbl
+    - publishers_id (foreign key) = publishers_tbl
+    - copyright
+    - status
+    - timestamps
+  
+---------------------------------------------------------
+
+  # View, Search, Add, edit or withdrawal of Journal books to journals collection
+  # Add Existing data from excell
+    - should auto make new data if not existing.
+      - authors
+      - publisher
+
+  * journals (Table)
+    - ID (Primary Key)
+    - accession_no
+    - title
+    - author_id (foreign key) = authors_tbl
+    - publisher_id (foreign key) = publishers_tbl
+    - copyright
+    - status
+    - timestamps
+  
+---------------------------------------------------------
+
+  // Classification of books
+    // GE, BSIT, HRM etc...
+
+  * classifications (table)
+    - ID (Primary Key)
+    - name
+    - status
+      - 1 = active
+      - 2 = inactive
+    - timestamps      
+
+---------------------------------------------------------
+
+  # Add, Search, edit, delete of categories in dewey decimal
+    // cannot delete if being used in some records
+  
+    * Main Category = 000 - 900
+    * Sub Category = main_category_parent < number
+    * child Category = sub_category_parent < number
+
+    * categories (table)
+      - ID (Primary Key)
+      - code
+      - name
+      - parent_code
+        - ( if == 0 ) = main_category
+      - status
+      - timestamp
+
+---------------------------------------------------------
+
+  # View, Search, Add, edit, delete of cutters code
+    // cannot delete if being used in some records
+
+    * cutters (table)
+      - ID (Primary Key)
+      - code
+      - status
+      - timestamp
+
+---------------------------------------------------------
+
+  # View, Search, Add, edit, delete of authors 
+    // cannot delete if being used in some records
+    
+    // possible many to many?
+    * authors (table)
+      - ID (Primary Key)
+      - first_name
+      - middle_name
+      - last_name
+      - status
+        1 = active
+        2 = inaactive
+      - timestamp
+
+---------------------------------------------------------
+
+  # View, Search, Add, edit, delete of publishers 
+    // cannot delete if being used in some records
+    
+    * publishers
+      - ID (Primary Key)
+      - name
+      - status
+      - timestamp
+
+---------------------------------------------------------
+
+  # View, Add, edit, delete of type of illustrations 
+    // cannot delete if being used in some records
+    
+    * illustrations
+      - ID (Primary Key)
+      - name
+      - timestamp
+
+---------------------------------------------------------
+
+  # View, Add, edit, delete tags for the books 
+    // cannot delete if being used in some records
+    
+    // Many to many
+      - Pivot Tables
+        - authors = accessions
+        - publishers = accessions
+        - accessions_tags
+        - thesis_tags
+        - inspirationals_tags
+        - journals_tags
+
+    * tags
+      - ID (Primary Key)
+      - name
+      - status
+        - 1 = active
+        - 2 = inactive
+      - timestamp
+
+---------------------------------------------------------
+
+### General Search Module
+
+  # Search Quering of books in specific: 
+    * Search all, search all in
+      - name or title
+      - accession no
+      - author
+      - date recieved
+      - isbn
+      - cutters table
+      - publisher
+      - copyright 
+      - source of fund
+        - donation
+        - bought
+        - others
+      - categories
+        - main
+        - sub
+        - child
+      - type of illustration
+      - edition
+      - volume
+      - pages
+      - cost price
+      - copies
+      - availability
+      - status
+        - available
+        - weeded
+
+---------------------------------------------------------
+
+  # Module interface for Library users to check books or scan books
+
+    # Front interface for Checking or searching specific book/s`
+      - will provide details upon availability & inforamtions.
+
+---------------------------------------------------------
+
+# Generation of library card
+
+  # Add, Edit of library policies in borrowing
+    - should had a maximum limit of characters to not overflow the card
+    - print card and print with RFID
+      - Front and back ( Inside is the RFID ) then laminate
+
+  # Printing of RFID
+
+  # Types of cards:
+    - Students
+    - Faculty or coaches
+    - Alumni ? // Add feature
+
+  # students
+    * front
+      - library No
+      - student id no
+      - name
+    * back
+      - polices
+
+  # faculty and coaches 
+    * front
+      - library No
+      - employee no
+      - name
+    * back
+      - polices
+
+---------------------------------------------------------
+
+  # View, Search, Add, Edit of students to the system
+    
+    * students (table)
+      - ID (Primary Key)
+      - lib_card_no
+      - stud_id_no
+      - f_name
+      - m_name
+      - l_name
+      - gender
+        - 1 = male
+        - 2 = female
+      - password // online access
+      - address
+      - email_add
+      - contact_no
+      - pic_url
+      - program_id (foreign key) = programs_tbl
+      - grade/year
+      - section_id (foreign key) = sections_tbl
+      - school_year
+      - sem
+      - status
+        - 0 = un-enrolled
+        - 1 = enrolled
+        - 2 = alumni
+      - timestamp
+
+  # Every semester renew data
+    - every semester all students status goes to un-enrolled
+    - students should present their assesment form to update their data
+    - the librarians will then input the data and then update the status as enrolled
+
+---------------------------------------------------------
+
+  # Add user_id in RFID table
+
+  * rfid_users (Table)
+    - id (Primary Key)
+    - rfid_id
+    - user_id
+    - status
+      - 0 = inactive
+      - 1 = active
+    - timestamps
+    
+  # Module for adding and removing of rfid to users
+
+  # Scan first rfid_card 
+    // validate check if already used!
+    // After validation proceed to select user: students or coach
+    // Then bind rfid_card data to user
+
+  # Remove rfid_card binding from user data
+    // validate the new rfid_card check if already used!
+    // After validation proceed to select user: students or coach
+    // Then bind rfid_card data to user
+    
+---------------------------------------------------------
+
+  # View, Search, Add, and edit programs in the system
+    
+    * programs (Table)
+      - ID (Primary Key)
+      - code
+      - name
+      - status
+        - 1 = active
+        - 2 = inactive
+      - timestamp
+
+---------------------------------------------------------
+
+  # View, Search, Add, and edit sections in the system
+    
+    * sections (Table)
+      - ID (Primary Key)
+      - parent_program_id
+      - code
+      - status
+      - timestamp
+
+---------------------------------------------------------
+
+  # View, Search, Add, Edit of staff and coaches to the system
+
+    * staff_coaches (Table)
+      - ID (Primary Key)
+      - library_card_no
+      - employee_id_no
+      - school_year
+      - f_name
+      - m_name
+      - l_name
+      - gender
+        - 1 = male
+        - 2 = female
+      - address
+      - email_address
+      - contact_no
+      - department_id (foreign_key) = departments_tbl
+      - status
+        - 1 = employed
+        - 2 = unemployed
+      - timestamp
+
+  # Every semester renew data
+    - every semester all staff and coaches status goes to un-empployed
+    - staff and coaches should should go to the library for the librarians to update their data
+    - the librarians will then input the data and then update the status as employed
+
+---------------------------------------------------------
+
+  # View, Search, Add, and edit departments in the system
+    
+    * departments (Table)
+      - ID (Primary Key)
+      - name
+      - status
+        - 1 = active
+        - 2 = inactive
+      - timestamp
+
+---------------------------------------------------------
+
+  # View, Search, Add, and edit account for the library system (Head Librarian Only)
+
+    * admins (Table)
+      - ID (Primary Key)
+      - username 
+      - first_name
+      - middle_name
+      - last_name
+      - admin_role
+        - 1 = librarian
+        - 2 = assist. librarian
+        - 3 = Student Assistant
+      - pin_code =  default (1234)
+      - password // Hash
+      - status
+        - 1 = active
+        - 2 = inactive
+      - timestamp
+
+    * admin_roles (Table)
+      - ID (Primary Key)
+      - description
+      - status
+      - timestamp
+
+---------------------------------------------------------
+
+  # Borrowing books in the library
+
+    # students and staff and coaches should present their library ID and then scanned by RFID 
+      to get the info
+
+    # the librarian will see the student info and then click the button to borrow books
+
+    # View, Search then borrow the book/s
+      - list of books to be borrowed
+      - maximum of 3 per students = 2 days
+      - maximum of 5 per faculty and coaches = at the end of semester
+
+    # the librarian can just scan the book to get the details of the book
+      - add to the list to be borrowed
+
+    # after finalizing the list of books to be borrow by the librarian
+      - the librarian will click the button ok
+
+    * borrowed_books (Table)
+      - ID (Primary Key)
+      - transaction_no
+      - user_id = User (Table)
+      - accession_no_id = foreign key for all kinds of accession_no;
+      - book_type
+        - 1 = AccessionBooks: accession_id (Foreign Key) = accessions_tbl
+        - 2 = Journals: journals_id (Foreign Key) = journals_tbl     
+        - 3 = Inspirationals: inspirationals_id (Foreign Key) = inspiarationals_tbl      
+        - 4 = ThesisBook: thesis_book_id (Foreign Key) = thesis_book_tbl       
+      - start_date (nullable) if not yet borrowed
+      - due_date (nullable) if not yet approved : if approved due_date to be borrowed
+      - notes (nullable)
+      - status
+        - 1 = pending request to be borrowed (To be Approved) 
+        - 2 = approved to be borrowed (Approved: Reserved) Reserved Date
+        - 3 = borrowed
+        - 4 = returned
+        - 5 = damage/lost
+
+        - 8 = denied
+        - 9 = cancelled
+        - 10 = overdue
+      - timestamp
+
+    * borrowed_events (Table)
+      - ID (Primary Key)
+      - borrowed_book_id
+      - start_date (nullable) if not yet borrowed
+      - due_date (nullable) if not yet approved : if approved due_date to be borrowed
+      - return_date (nullable) if not returned yet
+      - status
+        - 1 = pending request to be borrowed (To be Approved)
+        - 2 = reserved (Approved: Reserved) Reserved Date
+        - 3 = borrowed
+        - 4 = returned
+        - 5 = damage/lost
+
+        - 8 = denied
+        - 9 = cancelled
+        - 10 = overdue
+        - 11 = returned_overdue
+      - timestamp
+      
+
+    # If Approved then reserve
+
+    # Reserve Only within one week
+
+    # if status == pending
+      # start_date = date first requested
+      # due_date = wanted date to reserved;
+
+    # if status == approved
+      # start_date = date reserved
+      # due_date = date reserved + (2 days = students : staff/faculties = date_they_want_to_retuen < end_of_semester = date to return;
+
+    // If reserved, the book is not available in the reserve date until date to return
+
+    // If wanted to change specified to an earlier date status go to pending to be first approved by admin
+      - books is returned to available in the reserve date;
+
+    // If the book is unclaimed within the reserve date, the reservation is goes to denied status 
+      - with a note: Did not claimed on the reserved date!
+      - add accountabilites to the user
+
+    # if status == borrowed
+      # start_date = date borrowed
+      # due_date = date to be returned + (2 days = students : staff/faculties = date_they_want_to_retuen < end_of_semester = date to return;
+
+    // If borrowed the book is not available in the reserve date until date to return
+
+    // If borrowed book : start_date > due_date;
+      - Add user to accountabilities (Table) for penalties as (overdue Yet)
+      - change status to overdue
+    
+    # if status == returned
+      # start_date = date borrowed
+      # due_date = date prescribed to be returned
+      # return_date = date returned book
+
+    // If returned book : start_date > due_date;
+      - Add user to accountabilities (Table) for penalties as (Returned Late)
+
+    # if status == damage/lost
+      # start_date = date reported
+      # due_date = date prescribed to be returned;
+
+    // If damage/lost book : start_date > due_date;
+      - Add user to accountabilities (Table) for penalties as (Damage/Lost Borrowed Book)
+
+    # if status == overdue
+      - Add user to accountabilities (Table) for penalties as (overdue)
+
+    # Returned & Overdue
+    // Already in accountabilities after overdue
+
+
+    # borrowing_settings (Table)
+      - id (Primary Key)
+      - per_day_cost
+      - timestamps
+
+    
+---------------------------------------------------------
+
+  # Walk in Module for Borrowing books
+  
+    // In conjunction with module for searching or scanning books for library users.
+
+    # Must have first An account/Library Card.
+    # Login in to designated pc/ for logging borrowing books
+
+    # Must get the books today.
+    # User who is borrowing must present himself to the librarians to check the book/s
+
+    - Users can cancel/delete list of books to be borrowed
+
+  # Admin Module for Walk in Borrowers
+
+    - List of books with its data
+    - Approval for borrowing
+    - Denying of borrowing
+    
+---------------------------------------------------------
+
+  # Admin Management of Borrowing
+
+    # Pending
+      - To Deny the request
+        - Add notes = required
+          - reason why denied
+      - Accept/Approve Request
+      - View Request
+
+    # Approved
+      - To Deny the request
+        - Add notes = required
+          - reason why denied
+      - claim book
+      - View Request
+      
+    # Borrowed
+      - return book
+      - add to damage/lost
+      - View Request
+
+    # Returned
+      - Add notes (nullable)
+      - View Request
+
+    # damage/lost
+      - Only the admin (Head Librarian) (Assist. Librarian)
+      - Add notes (nullable)
+      - View Request
+      - if added
+        - add to aquisition_books as Damage/lost
+      
+    # denied
+      - Accept/Approve Request
+      - View Request
+
+    # cancelled
+      - View Request
+
+    # overdue
+      - View Request
+      - return book
+
+    # return_overdue
+      - View Request
+      - return book
+
+---------------------------------------------------------
+
+  # Bell Notifications for Users
+    - All Events
+      - Approved, Denied
+      - Alert or notification to return or claim books
+      - Accountabilites or penalties
+      - Announcements
+      - Events
+      - Libra.e Posts
+
+  # toDatabase methods for notifications
+    - if notifications is an alert for;
+      - return or claim books
+      - accountabilities or penalties
+    // Add to toMail to email users
+    
+   * Notifications (Table) From Laravel
+   
+   Use vue.js for realtime updates of notifications for users
+   
+   
+---------------------------------------------------------
+
+  # Notification of overdue borrowed books
+    - email
+    - message (sms)
+    - web notification
+  
+  # Auto Calculation of penalties
+    - 5 pesos per day
+
+  # Printing of overvue Receipt
+    * front
+      - Due
+      - transaction_id
+      - student_id
+      - name
+      - book title
+      - number of days
+      - total amount
+      - students signature
+      - librarian signature
+
+---------------------------------------------------------
+
+  # Payment of penalties
+    # Payment through STI Munoz paymaya ID
+
+---------------------------------------------------------
+
+  # User verification and clearance
+    # Clearance for the library if users had users issues
+
+    # List of users who had issues
+
+    # At the end of the semester will generate 
+
+    # Segregate Students and Staff and Coaches
+
+    # 5 pesos per day: start_date > due_date: start_date - due_date = (days)x5 
+    # If Damage/Lost + book price;
+
+    * accountabilities (Table)
+      - ID (Primary Key)
+      - user_id
+      - borrowed_book_id (nullable if not books)
+      - notes (nullable)
+      - accountability_type
+        - 1 = approved but did not claim
+        - 2 = overdue
+        - 3 = Damage/Lost Borrowed Book
+      - status
+        - 1 = Not paid yet
+        - 2 = Cleared
+      - payment_price (nullable if not paid)
+      - invoice_id (nullable if not paid)
+      - timestamp
+
+    // nullable to other type of accountabilites
+      - rooms or areas
+      - gaming room
+
+  # Handle the accountabilities
+    - show total amount of penalty
+    - To clear accountability
+
+    - print Receipt for payment in accountability
+
+  # Users Accountabilites
+
+  // Add data to invoice if paid successfully
+  
+  * invoices (table)
+    - ID (Primary Key)
+    - invoice_no = y m dH user_id
+    - user_id 
+    - status 
+      - 1 = Not paid yet
+      - 2 = Cleared
+    - date_of_payment 
+    - timestamps 
+
+  // Mark as paid
+
+    # all accountabilites after the invoice date
+      - borrowed_books.status = 10 due_date < invoice_no_date = mark as paid
+      - borrowed_books.status = 5 return_date < invoice_no_date = mark as paid
+      - borrowed_books.status = 11 return_date < invoice_no_date = mark as paid
+
+    # add invoice data in invoice table
+
+    # accountabilites.status = 2
+    # add payment_price if borrowed_book.status == 10
+    # add invoice id
+    
+    
+  # Books
+  # Gaming Room
+  # Rooms/Areas
+
+
+---------------------------------------------------------
+
+  # Returning of borrowed books
+
+    # in the list of the borrowed books 
+      - upon students or staff or coaches returning the books
+      - the librarians will then click the button actions to return the books
+      - the books status will be returned and available
+
+    // Change Status
+    #borrowed_books (table)
+    #borrowed_events (table)
+    
+    #change no_accession (table) availability to 1 = available;
+
+    // If late or damage/lost: add to accountabilities
+
+---------------------------------------------------------
+
+  # My Reservations 
+
+    // With Data about the books
+      
+    # Books
+      List
+        - 1 = pending request to be borrowed (To be Approved)
+        - 2 = reserved (Approved: Reserved) Reserved Date
+        - 3 = borrowed
+        - 4 = returned
+        - 5 = damage/lost
+
+        - 8 = denied
+        - 9 = cancelled
+        - 10 = overdue
+        - 11 = returned_overdue
+    
+    # Gaming
+      
+    
+    # Rooms/Areas
+
+
+
+---------------------------------------------------------
+
+
+  # Gaming Room Reservation
+  
+  // Reserve per slot in egames
+
+  # egames_slots (Table)
+    - id (Primary Key) 
+    - pc_no
+    - pc_name
+    - pc_type
+    - notes (nullable)
+    - description (nullable)
+    - status
+      - 1 = active
+      - 0 = inactive
+    - timestamps
+
+  
+
+  # egames_reservations (Table)
+    - id (Primary Key)
+    - user_id
+    - egames_slot_id
+    - reserve_date
+    - reserve_time_slot
+    - time_in (nullable)
+    - time_out (nullable)
+    - notes (purpose) (nullable)
+    - status
+      - 1 = pending 
+      - 2 = reserve
+      - 3 = Active on_use playing
+      - 4 = finished
+
+      - 8 = denied
+      - 9 = cancelled
+    - timestamps
+
+  # egames_events (Table)
+    - id (Primary Key)
+    - egames_reservation_id
+    - notes (purpose) (nullable)
+    - status
+      - 1 = pending 
+      - 2 = reserve
+      - 3 = Active on_use playing
+      - 4 = finished
+
+      - 8 = denied
+      - 9 = cancelled
+    - timestamps
+
+
+  // Egames Settings
+  # egames_settings
+    - id (Primary ID)
+    - per_session = minutes = 90minutes = 1 & half hours 
+    - start_time 
+    - end_time 
+    - timestamps
+  
+
+---------------------------------------------------------
+
+  # Admin management of Egames reservations & Egames slots and settings
+
+---------------------------------------------------------
+
+  # Rooms Reservations
+
+  // Start & End of schedule is based on Libra-E Settings
+
+  # rooms_reservations (Table)
+    - id (Primary Key)
+    - purpose
+    - topic_description
+    - user_id
+    - reserve_date
+    - time_start
+    - time_end
+    - no_users
+    - time_in (nullable)
+    - time_out (nullable)
+    - notes (nullable)
+    - status
+      - 1 = pending
+      - 2 = reserved
+      - 3 = on_use
+      - 4 = finished
+
+      - 8 = denied
+      - 9 = cancelled
+    - timestamps
+
+  # rooms_events (Table)
+    - id (Primary Key)
+    - rooms_reservation_id
+    - notes (nullable)
+    - status 
+    - timestamp
+  
+
+---------------------------------------------------------
+
+  # Admin management of Rooms reservations 
+
+---------------------------------------------------------
+
+  # Libra.e Settings
+    - Start & end time availability of the library
+    - All Holiday Add and List
+    - Semestral Dates: Start & End Dates  
+
+
+---------------------------------------------------------
+
+### info site for the library system
+  
+  # Online Login
+    - students
+    - staff_coaches
+
+  # Home Page
+    - Login
+    - Design 
+    - Showcase rooms or places (Ammenities)
+    - Read more
+    - Other info
+
+  # Pages
+    - Rooms and Areas
+      - print forms
+    - Policies
+    - Descriptions
+    - Design 
+
+
+  # Online Reservation of books
+
+    # Searching of books
+      - Search Quering of books
+      - Search Availability of books
+        - books
+        - thesis
+        - journals
+        - insiparationals
+
+      # Provide Details for the specified or searched book
+
+    # list of reservation
+      - 1 day reservation period (After that return books to circulation)
+
+    # List of books borrowed
+      - currently
+      - past data
+      
+    # Viewing of user info
+      # Change Password
+        - (Default) pass1234
+      # Management of Account data
+
+    # Management of Info site
+      - Policies
+      - Rules and Regulations
+      - Other Info
+        - Library Hours
+      - Descriptions
+      - Copyright
+
+    # View, Search, Add, Edit
+      - Announcements
+      - Events
+      - Posts 
+
+    * pages (Table)
+      - ID (Primary Key)
+      - name
+      - description
+      - status
+        - 1 = active
+        - 2 = inactive
+      - timestamp
+
+    * policies (Table)
+      - ID (Primary Key)
+      - pages_id (Foreign Key) = pages_tbl
+      - info
+      - timestamp
+
+    * rules_regulations (Table)
+      - ID (Primary Key)
+      - pages_id (Foreign Key) = pages_tbl
+      - info
+      - timestamp
+
+    * library_info (Table)
+      - ID (Primary Key)
+      - name
+      - description
+      - status
+        - 1 = active
+        - 2 = inactive
+      - timestamp
+
+      # Library Info
+        - Library Hours
+        - Policies
+        - Rules and Regulations
+        - Copyright
+        - contact no
+        - Email Address
+        - link websites
+        - payment price
+    
+---------------------------------------------------------
+
+ ### Library Data Needed
+
+ # All Policies as well as Descriptions
+ # Rules and Regulations 
+ # Library Hours
+  - contact no
+  - Email Address
+  - link websites
+  
+---------------------------------------------------------
+
+### Attendance monitoring
+
+  # Entrance login in the library card with RFID
+
+    - RFID Scanning of Library ID
+      - Automatic login in the attendance
+
+    - attendance in:
+      - Reading area
+      - Computer Room
+      - E-Games
+      - Cozy Room
+
+  # Guest 
+    - manual input in paper
+    - then encoded in the system
+
+  * attendance_users (Table)
+    - id (Primary Key)
+    - rfid_users_id = (foreign_key)
+    - user_type
+      1 = shs
+      2 = tertiary
+      3 = coaches
+    - room_ref_no
+    - status
+      - 0 invalid
+      - 1 log-in
+    - timestamps
+    
+  * library_rooms (Table)
+    - id (Primary Key)
+    - name
+    - description
+    - room_ref_no = for rfid get data
+    - status
+      - 0 inactive
+      - 1 active
+    - timestamps
+
+    room_ref_no
+      - 1 = main_attendance
+      - 2 = Cozy Room
+      - 3 = Reading area
+      - 4 = Computer Room
+      - 5 = E-Games
+
+    // Attendance in rfid
+
+    // Attendance in manual encoding in the system
+      - Add no. users in a specific date by
+        - shs
+        - tertiary
+        - coach
+
+      * attendance_additions (Table)
+        - id (Primary Key)
+        - user_type
+          - 1 = shs
+          - 2 = tertiary
+          - 3 = coach
+        - room_ref_no
+        - date
+        - status
+          - 0 = not-added
+          - 1 = Added
+        - timestamps
+
+
+---------------------------------------------------------
+
+### Alarm on Entrance for unwanted stealing of books
+
+  # RFID Reciever at the exit of the library
+    - Upon detecting the RFID in a book
+      - if it is not borrowed in the system,
+      - an alarm will notify the librarians
+
+---------------------------------------------------------
+
+### Scheduling of Rooms and areas in the library
+
+  # Printing of forms and scheduling of rooms or areas in the library
+    - Calendar of usage
+    - reservations of students and staffs and coaches
+
+  # users must first pass the accomplished forms before accessing the desired rooms or areas  
+
+  # Alarm or notification when renting users are overdue
+
+---------------------------------------------------------
+
+################ Audit Trail ################
+
+# Add audit trigger in events in models
+# Specific needed audit triggers 
+
+
+
+################ DASHBOARD ################
+
+  In Dashboard charts
+
+  // Users Statistics Current Month 
+    - get average?
+    - over_all 
+
+    # by 
+      - shs
+      - tertiary
+      - faculty
+
+  // Egames Current Month Usage
+    # by 
+      - shs
+      - tertiary
+
+  // Room Current Month Usage
+    # by 
+      - shs
+      - tertiary
+      - faculty
+
+  // No. Borrowed Books Current Month Usage
+    # by 
+      - shs
+      - tertiary
+      - faculty
+
+  // No. Borrowed Board & PS4 usages Books Current Month Usage
+    # by 
+      - shs
+      - tertiary
+      - faculty
+  
+
+  # Based on the generated Reports 
+
+################ REPORTS ################
+
+  Reports in Table form Printable
+
+  # Reports
+    All Events
+    Total No of usage in..
+     - year
+     - month 
+     - date
+     - overall
+
+  - get_total
+  - get_average
+
+  Reports in books
+    - Get specific in category
+      or in specific query
+
+      # Filter querying of books
+
+        # by  
+          - author
+          - title
+          - publisher
+          - category_1
+          - category_2
+          - copyright
+          - filipiniana
+          - status
+            - active
+            - inactive
+            - weeded
+            - damage/lost
+    
+
+  # All Borrowed books list
+    - Classification
+    - Type of Material
+      - Books
+      - Thesis
+    - quantity
+    - title
+    - client
+      - student 
+      - staff/faculty 
+    
+
+  // Users Attendance
+     # by 
+      - shs
+      - tertiary
+      - faculty
+
+      // Attendance Logs
+        - List of all Attendance
+
+    # Filter querying of attendance
+
+        # by
+        - usage per
+          - day
+          - week
+          - month
+          - year
+          - start to end date
+
+        - by specific room
+          - main_attendance
+          - cozy room
+          - research room
+          - egames room
+        
+        - get usage in total in
+          - attendance
+          - cozy room
+          - research room
+          - egames
+          - etc
+  
+  // No. Borrowed Books
+    # by 
+      - shs
+      - tertiary
+      - faculty
+
+    # by
+      - usage per
+        - day
+        - week
+        - month
+        - year
+        - start to end date
+
+      - course (student)
+
+      - department (coach)
+
+    # Types of user who borrowed the books
+        -list of all books user type borrowed books
+          - shs
+          - tertiary
+          - faculty
+    
+  // Egames
+    # by 
+      - shs
+      - tertiary
+
+    - usage per
+      - day
+      - week
+      - month
+      - year
+      - start to end date
+
+    - course (student)
+    
+
+  // Rooms
+    # by 
+      - shs
+      - tertiary
+      - faculty
+
+    - usage per
+      - day
+      - week
+      - month
+      - year
+      - start to end date
+    
+
+  // No. Borrowed Board & PS4 Games
+     # by 
+      - shs
+      - tertiary
+      - faculty
+
+    - usage per
+      - day
+      - week
+      - month
+      - year
+      - start to end date      
+
+  // Accountabilites
+     # by 
+      - shs
+      - tertiary
+      - faculty
+
+
+
+# Existing Books
+# Weeded Books
+# Donated Books
+# Purchased Books
+# Lost Books
+# Thesis Books
+# Inspirational
+# Journal
+# Attendance
+# Rooms or place (Ammenities)
+
+
+
+
+
+
+  
+
+
